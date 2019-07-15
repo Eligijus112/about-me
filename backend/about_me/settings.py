@@ -23,6 +23,9 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+
+        # Custom applications
+        'about_me',
     ]
 
     MIDDLEWARE = [
@@ -98,3 +101,5 @@ class Base(Configuration):
     ]
 
     DEBUG = True
+
+    MEDIA_ROOT = BASE_DIR + '/media/'
