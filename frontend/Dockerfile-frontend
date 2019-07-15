@@ -1,0 +1,16 @@
+# Pulling the image for node.js
+FROM node:11
+
+# Making a directory to store the front end code 
+RUN mkdir -p /src/frontend
+WORKDIR /src/frontend
+
+# Copying all the files from the local front end directory to the 
+# container 
+COPY . /src/frontend
+
+# Copying the package lists
+COPY package.json /src/frontend
+
+# Installing all the frontend dependencies
+RUN npm install

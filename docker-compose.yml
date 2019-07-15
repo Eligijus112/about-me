@@ -1,0 +1,44 @@
+version: "3"
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-backend  
+    tty: true
+    stdin_open: true
+    ports:
+      - 8000:8000   
+    command:
+      sh -c "sleep 5 && 
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000"  
+    depends_on:
+      - db_aboutme
+    volumes:
+      - ./backend:/src/backend  
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-frontend    
+    ports:
+      - 3000:3000
+    command:
+      sh -c "npm start"  
+    depends_on:
+      - backend  
+    volumes:
+      - ./frontend:/src/frontend    
+
+  db_aboutme:
+    image: postgres:10
+    container_name: "db_aboutme"
+    environment:
+        POSTGRES_USER: aboutme
+        POSTGRES_PASSWORD: aboutme
+    volumes:
+        - ./postregesql:/var/lib/postgresql
+    ports:
+        - 5432:5432   
