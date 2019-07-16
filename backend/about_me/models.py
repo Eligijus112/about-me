@@ -1,5 +1,6 @@
 from django.db import models
 from .settings import MEDIA_ROOT
+from datetime import datetime
 
 
 class Person(models.Model):
@@ -16,6 +17,13 @@ class Person(models.Model):
     masters = models.BooleanField()
     doctor_degree = models.BooleanField()
     short_description = models.CharField(max_length=250, default='', null=True)
+
+    @property
+    def age(self):
+        """
+        A function to get the age of a person
+        """
+        return int((datetime.now().date() - self.date_of_birth).days / 365.25)
 
 class UserProfile(models.Model):
     """

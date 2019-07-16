@@ -12,9 +12,9 @@ class Base(Configuration):
 
     DEBUG = True
 
-    ALLOWED_HOSTS = ['0.0.0.0']
+    ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
-    # Application definition
+    # Definng installed applications
 
     INSTALLED_APPS = [
         'django.contrib.admin',
@@ -26,9 +26,15 @@ class Base(Configuration):
 
         # Custom applications
         'about_me',
+
+        # 3rd party 
+        'rest_framework',
+        'corsheaders',
     ]
 
     MIDDLEWARE = [
+        'corsheaders.middleware.CorsMiddleware',
+        'django.middleware.common.CommonMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -38,7 +44,12 @@ class Base(Configuration):
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ]
 
-    ROOT_URLCONF = 'about_me.urls'
+    CORS_ORIGIN_WHITELIST = [
+        'localhost:3000',
+        '127.0.0.1:3000',
+    ]
+
+    ROOT_URLCONF = 'master_settings.urls'
 
     TEMPLATES = [
         {
