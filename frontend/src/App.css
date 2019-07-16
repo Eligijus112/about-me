@@ -1,24 +1,58 @@
-.App {
-  text-align: center;
+.Person-info img {
+  border-radius: 75%;
+  height: 14em;
+  width: 15.5em;
+  float: left;
+  padding: 1em;
+  margin: -3% 2.5%;
+  animation: fadeIn 1.5s ease;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.Person-header {
+  text-align: right;
+  font-family: arial;
+  padding: 1em;
+  background-color: #003891;
   color: white;
+  animation: fadeIn 1.5s ease;
 }
 
-.App-intro {
-  font-size: large;
+.Person-info {
+  text-align: right;
+  padding: 1em;
+  font-weight: bold;
+  animation: fadeIn 2s ease;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Person-desc {
+  padding: 1em;
+  font-family: arial;
+  font-size:1.2em;
+  display:block;
+  border-top:1px solid #DDD;
+  border-bottom:1px solid #CCC;
+  padding:7px 4px;
+  animation: fadeIn 2s ease;
+}
+
+h3 {
+  margin: 0% 0% 1.5%;
+}
+
+.footer {
+  background-color: #003891;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;
+  animation: fadeIn 1.5s ease;
 }

@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import queryString from 'query-string'
+import './App.css';
 
-const user_id = 1;
+// Extracting the GET parameters
+const query_parameter = queryString.parse(location.search);
+const user_id = query_parameter.user_id;
 
 class App extends Component {
+
+  id = user_id;
 
   // Setting the initial state of person
   state = {
@@ -12,13 +18,16 @@ class App extends Component {
 
   // Initializing the getPerson method 
   componentDidMount(){
+    if(this.id == null){
+      this.id = 1
+    }
     this.getPerson()
   }
 
   // Downloading a specific user data 
   getPerson(){
     axios
-    .get("http://127.0.0.1:8000/api/" + user_id + "/")
+    .get("http://127.0.0.1:8000/api/" + this.id + "/")
     .then(res => {
       this.setState({Person: res.data})
     })
@@ -29,12 +38,20 @@ class App extends Component {
       <div className="Person">
         
         <div className="Person-header">
-          <h2>Curriculum vitae</h2>
-          <h3>{this.state.Person.name} {this.state.Person.surname}</h3>
-          <img src={this.state.Person.profile_image} alt='User' height="300" width="300"></img>
+          <h2>{this.state.Person.name} {this.state.Person.surname} | {this.state.Person.caption}</h2>
         </div>
 
         <div className='Person-info'>
+          <img src={this.state.Person.profile_image} alt='User'></img>
+
+          <p>
+            Email: {this.state.Person.email} 
+          </p>
+
+          <p>
+            Phone: {this.state.Person.phone} 
+          </p>
+
           <p>
             Country: {this.state.Person.country} 
           </p>
@@ -51,9 +68,15 @@ class App extends Component {
             Age: {this.state.Person.age}
           </p>  
         </div>
-        <p className="Person-desc">
+
+        <div className="Person-desc">
+          <h3> About me </h3>
           {this.state.Person.short_description}
-        </p>
+        </div>
+
+        <div className='footer'>
+        </div>
+
       </div>
     );
   }
