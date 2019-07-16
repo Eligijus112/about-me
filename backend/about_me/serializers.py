@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Person 
+from .models import Person, UserProfile 
 from datetime import datetime
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -12,3 +12,9 @@ class PersonSerializer(serializers.ModelSerializer):
             'city', 'date_of_birth', 'short_description',
             'age'
             )
+
+
+class ProfilePicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = "__all__"

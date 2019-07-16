@@ -1,5 +1,4 @@
 from django.db import models
-from .settings import MEDIA_ROOT
 from datetime import datetime
 
 
@@ -31,4 +30,4 @@ class UserProfile(models.Model):
     """    
 
     user = models.OneToOneField(Person, unique=True, on_delete=models.CASCADE)
-    profile_image = models.ImageField(upload_to='profile_pictures')
+    profile_image = models.FileField(upload_to='profile_pictures')
