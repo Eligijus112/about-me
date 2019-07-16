@@ -16,6 +16,7 @@ class Person(models.Model):
     masters = models.BooleanField()
     doctor_degree = models.BooleanField()
     short_description = models.CharField(max_length=250, default='', null=True)
+    profile_image = models.FileField(upload_to='profile_pictures', default='', null=True)
 
     @property
     def age(self):
@@ -23,11 +24,3 @@ class Person(models.Model):
         A function to get the age of a person
         """
         return int((datetime.now().date() - self.date_of_birth).days / 365.25)
-
-class UserProfile(models.Model):
-    """
-    Data regarding profile picture 
-    """    
-
-    user = models.OneToOneField(Person, unique=True, on_delete=models.CASCADE)
-    profile_image = models.FileField(upload_to='profile_pictures')

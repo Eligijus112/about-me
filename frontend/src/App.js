@@ -7,14 +7,12 @@ class App extends Component {
 
   // Setting the initial state of person
   state = {
-    Person: [],
-    ProfilePicture: []
+    Person: []
   };
 
   // Initializing the getPerson method 
   componentDidMount(){
     this.getPerson()
-    this.getProfile()
   }
 
   // Downloading a specific user data 
@@ -26,15 +24,6 @@ class App extends Component {
     })
   }
 
-  // Method to get profile picture
-  getProfile(){
-    axios
-    .get("http://127.0.0.1:8000/api/" + user_id + "/image/")
-    .then(res => {
-      this.setState({ProfilePicture: res.data})
-    })
-  }
-
   render() {
     return (
       <div className="Person">
@@ -42,7 +31,7 @@ class App extends Component {
         <div className="Person-header">
           <h2>Curriculum vitae</h2>
           <h3>{this.state.Person.name} {this.state.Person.surname}</h3>
-          <img src={this.state.ProfilePicture.profile_image} alt='User' height="300" width="300"></img>
+          <img src={this.state.Person.profile_image} alt='User' height="300" width="300"></img>
         </div>
 
         <div className='Person-info'>
