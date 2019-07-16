@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from phone_field import PhoneField
 
 
 class Person(models.Model):
@@ -9,13 +10,13 @@ class Person(models.Model):
 
     name = models.CharField(max_length=150, default='', null=True)
     surname = models.CharField(max_length=150, default='', null=True)
+    caption = models.CharField(max_length=150, default='', null=True)
     date_of_birth = models.DateField(null=True, blank=True)
     country = models.CharField(max_length=100, default='', null=True)
     city = models.CharField(max_length=150, default='', null=True)
-    bachelor = models.BooleanField()
-    masters = models.BooleanField()
-    doctor_degree = models.BooleanField()
-    short_description = models.CharField(max_length=250, default='', null=True)
+    phone = PhoneField(blank=True, help_text='Contact phone number', default='')
+    email = models.EmailField(default='', blank=True)
+    short_description = models.TextField(default='', null=True)
     profile_image = models.FileField(upload_to='profile_pictures', default='', null=True)
 
     @property

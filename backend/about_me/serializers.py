@@ -8,8 +8,4 @@ class PersonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Person 
-        fields = (
-            'id', 'name', 'surname', 'country', 
-            'city', 'date_of_birth', 'short_description',
-            'age', 'profile_image'
-            )
+        fields = "__all__"
