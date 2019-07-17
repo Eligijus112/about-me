@@ -55,4 +55,11 @@ class PersonExperience(models.Model):
         return int((end_date - start_date).days/30)
 
 
-
+class PersonLinks(models.Model):
+    """
+    Links to social media, github accounts, etc
+    """
+    user = models.ForeignKey(Person, on_delete=models.CASCADE)
+    github = models.URLField(default='', null=True)
+    kaggle = models.URLField(default='', null=True)
+    instagram = models.URLField(default='', null=True)

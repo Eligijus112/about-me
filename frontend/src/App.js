@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import queryString from 'query-string'
 import './App.css';
+import instagram_logo from './instagram-icon.png'
+import kaggle_logo from './kaggle-icon.png'
+import github_logo from './github-icon.png'
+
 
 // Extracting the GET parameters
 const query_parameter = queryString.parse(location.search);
@@ -14,7 +18,8 @@ class App extends Component {
   // Setting the initial state of person
   state = {
     Person: [],
-    Experience: []
+    Experience: [],
+    Links: []
   };
 
   // Initializing the getPerson method 
@@ -24,6 +29,7 @@ class App extends Component {
     }
     this.getPerson()
     this.getExperience()
+    this.getLinks()
   }
 
   // Downloading a specific user data 
@@ -44,8 +50,17 @@ class App extends Component {
     })
   }
 
+  // Downloading links (social media) about a person
+  getLinks(){
+    axios
+    .get("http://127.0.0.1:8000/api/links?user_id=" + this.id)
+    .then(res => {
+      this.setState({Links: res.data[0]})
+    })
+  }
+
   render() {
-    console.log(this.state.Experience)
+    console.log(this.state.Links.instagram)
     return (
       <div className="Person">
         
@@ -118,8 +133,19 @@ class App extends Component {
         </div>
 
         <div className='footer'>
-        </div>
+          <a href={this.state.Links.instagram} target='_blank'>
+            <img src={instagram_logo} alt="instagram logo" />;
+          </a>
 
+          <a href={this.state.Links.github} target='_blank'>
+            <img src={github_logo} alt="github logo" />;
+          </a>
+
+          <a href={this.state.Links.kaggle} target='_blank'>
+            <img src={kaggle_logo} alt="kaggle logo" />;
+          </a>
+        </div>
+          
       </div>
     );
   }
