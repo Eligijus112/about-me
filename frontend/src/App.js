@@ -13,7 +13,8 @@ class App extends Component {
 
   // Setting the initial state of person
   state = {
-    Person: []
+    Person: [],
+    Experience: []
   };
 
   // Initializing the getPerson method 
@@ -22,6 +23,7 @@ class App extends Component {
       this.id = 1
     }
     this.getPerson()
+    this.getExperience()
   }
 
   // Downloading a specific user data 
@@ -30,6 +32,15 @@ class App extends Component {
     .get("http://127.0.0.1:8000/api/" + this.id + "/")
     .then(res => {
       this.setState({Person: res.data})
+    })
+  }
+
+  // Downloading data regarding experience
+  getExperience(){
+    axios
+    .get("http://127.0.0.1:8000/api/experience?user_id=" + this.id)
+    .then(res => {
+      this.setState({Experience: res.data})
     })
   }
 
