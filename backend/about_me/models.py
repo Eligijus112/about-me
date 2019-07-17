@@ -51,7 +51,7 @@ class PersonExperience(models.Model):
         if end_date is None:
             end_date = datetime.now()
             end_date = datetime.date(end_date)
-
+            self.end_date = datetime.date(datetime.now())
         return int((end_date - start_date).days/30)
 
 

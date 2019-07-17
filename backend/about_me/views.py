@@ -25,4 +25,5 @@ class UserExperience(generics.ListAPIView):
         user_id = self.request.query_params.get('user_id', None)
         if not user_id:
             user_id = 1
-        return PersonExperience.objects.filter(user_id=user_id)
+    
+        return PersonExperience.objects.filter(user_id=user_id).order_by('-start_date')

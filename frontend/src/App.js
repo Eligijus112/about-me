@@ -45,6 +45,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.Experience)
     return (
       <div className="Person">
         
@@ -83,6 +84,37 @@ class App extends Component {
         <div className="Person-desc">
           <h3> About me </h3>
           {this.state.Person.short_description}
+        </div>
+
+        <div className="Person-exp">
+          <h3> Professional experience </h3>
+          {this.state.Experience.map(x =>
+          <ul> 
+            <li className="Person-exp-entry"> 
+              <p>
+                <span id="exp">Title</span>: {x.title}
+              </p>
+
+              <p>
+                <span id="exp">Workplace</span>: {x.firm}
+              </p>
+
+              <p>
+                <span id="exp">Time frame</span>: {x.start_date} - {x.end_date}
+              </p>
+
+              <p>
+                <span id="exp"> Months of experience </span>: {x.months_in_job}
+              </p>
+
+              <p>
+                <span id="exp">Job description</span>:
+
+                {x.description}
+              </p>  
+            </li> 
+          </ul>  
+          )}
         </div>
 
         <div className='footer'>
