@@ -1,10 +1,10 @@
 .Person-info img {
   border-radius: 75%;
-  height: 15em;
-  width: 17.5em;
+  height: 16em;
+  width: 18.5em;
   float: left;
   padding: 1em;
-  margin: -4% 2.5%;
+  margin: -4% 0%;
   animation: fadeIn 1s ease;
 }
 

@@ -63,3 +63,18 @@ class PersonLinks(models.Model):
     github = models.URLField(default='', null=True)
     kaggle = models.URLField(default='', null=True)
     instagram = models.URLField(default='', null=True)
+    facebook = models.URLField(default='', null=True)
+    linkedin = models.URLField(default='', null=True)
+
+
+class PersonTechnologyStack(models.Model):
+    """
+    A data model for a persons technology stack 
+    """    
+    user = models.ForeignKey(Person, on_delete=models.CASCADE)
+    cloud = models.TextField(default='', null=True)
+    programming = models.TextField(default='', null=True)
+    os = models.TextField(default='', null=True)
+    web_development = models.TextField(default='', null=True)
+    databases = models.TextField(default='', null=True)
+    machine_learning = models.TextField(default='', null=True)
