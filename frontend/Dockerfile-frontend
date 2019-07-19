@@ -11,6 +11,7 @@ COPY . /src/frontend
 
 # Copying the package lists
 COPY package.json /src/frontend
+COPY package-lock.json /src/frontend
 
 # Installing all the frontend dependencies
 RUN npm install
