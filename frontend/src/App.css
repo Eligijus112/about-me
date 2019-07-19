@@ -84,3 +84,28 @@ ul{
 #exp{
   font-weight: bold;
 }
+
+ul.react-tabs__tab-list{
+  background-color: #003891;
+  color: white;
+  animation: fadeIn 1s ease;
+  font-family: arial;
+  font-weight: bold;
+  margin:0;
+  padding-left: 0;
+}
+
+.react-tabs__tab{
+  font-size: 1.5em;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.25em;
+  margin-left: 0;
+  opacity: 0.65;
+}
+
+.react-tabs__tab--selected{
+  background: #7861ff;
+  color: white;
+  opacity: 1;
+}
