@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from phone_field import PhoneField
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Person(models.Model):
@@ -69,7 +70,7 @@ class PersonLinks(models.Model):
 
 class PersonTechnologyStack(models.Model):
     """
-    A data model for a persons technology stack 
+    A data model for a person's technology stack 
     """    
     user = models.ForeignKey(Person, on_delete=models.CASCADE)
     cloud = models.TextField(default='', null=True)
@@ -78,3 +79,19 @@ class PersonTechnologyStack(models.Model):
     web_development = models.TextField(default='', null=True)
     databases = models.TextField(default='', null=True)
     machine_learning = models.TextField(default='', null=True)
+
+
+class PersonBooks(models.Model):
+    """
+    A data model for a person's book list
+    """
+
+    user = models.ForeignKey(Person, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100, default='', null=True)
+    author = models.CharField(max_length=100, default='', null=True)
+    book_cover = models.FileField(upload_to='book_covers', default='', null=True)
+    user_rating = models.FloatField(
+        null=True, 
+        validators=[MinValueValidator(1), MaxValueValidator(10)]
+        )
+    user_description = models.TextField(default='', null=True)    

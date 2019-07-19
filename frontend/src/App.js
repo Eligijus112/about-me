@@ -22,7 +22,8 @@ class App extends Component {
   state = {
     Person: [],
     Experience: [],
-    Links: []
+    Links: [],
+    Books: []
   };
 
   // Initializing the getPerson method 
@@ -33,6 +34,7 @@ class App extends Component {
     this.getPerson()
     this.getExperience()
     this.getLinks()
+    this.getBooks()
   }
 
   // Downloading a specific user data 
@@ -47,7 +49,7 @@ class App extends Component {
   // Downloading data regarding experience
   getExperience() {
     axios
-      .get("http://127.0.0.1:8000/api/experience?user_id=" + this.id)
+      .get("http://127.0.0.1:8000/api/experience/?user_id=" + this.id)
       .then(res => {
         this.setState({ Experience: res.data })
       })
@@ -56,9 +58,19 @@ class App extends Component {
   // Downloading links (social media) about a person
   getLinks() {
     axios
-      .get("http://127.0.0.1:8000/api/links?user_id=" + this.id)
+      .get("http://127.0.0.1:8000/api/links/?user_id=" + this.id)
       .then(res => {
         this.setState({ Links: res.data[0] })
+      })
+  }
+
+  // Downloading the book list of a user
+
+  getBooks() {
+    axios
+      .get("http://127.0.0.1:8000/api/books/?user_id=" + this.id)
+      .then(res => {
+        this.setState({ Books: res.data })
       })
   }
 
@@ -154,6 +166,36 @@ class App extends Component {
 
         <TabPanel>
           <div className="Books">
+
+            <div className="Books-list">
+              <h3> Books read by {this.state.Person.name} {this.state.Person.surname} </h3>
+              <ul>
+                {this.state.Books.map(x =>
+
+                  <li key={x.title + x.firm} className="Book-entry">
+                    <div className='bookCover'>
+                      <img src={x.book_cover} alt='Book_cover'></img>
+                    </div>
+                    <p>
+                      <span id="exp">Title</span>: {x.title}
+                    </p>
+
+                    <p>
+                      <span id="exp">Author</span>: {x.author}
+                    </p>
+
+                    <p>
+                      <span id="exp"> {this.state.Person.name} rating </span>: {x.user_rating} / 10
+                    </p>
+
+                    <p>
+                      <span id="exp"> {this.state.Person.name} description</span>: {x.user_description}
+                    </p>
+                  </li>
+                )}
+              </ul>
+            </div>
+
             <div className='footer'>
               {render_social(this.state.Links.instagram, 'instagram')}
               {render_social(this.state.Links.github, 'github')}
