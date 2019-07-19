@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Person, PersonExperience, PersonLinks
+from .models import Person, PersonExperience, PersonLinks, PersonBooks
 from datetime import datetime
 
 
@@ -25,4 +25,11 @@ class PersonLinksSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PersonLinks
+        fields = "__all__"
+
+
+class PersonBooksSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PersonBooks
         fields = "__all__"

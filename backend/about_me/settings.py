@@ -30,7 +30,7 @@ class Base(Configuration):
         # 3rd party 
         'rest_framework',
         'corsheaders',
-        'phone_field'
+        'phone_field',
     ]
 
     MIDDLEWARE = [
