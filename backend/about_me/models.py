@@ -60,11 +60,11 @@ class PersonLinks(models.Model):
     Links to social media, github accounts, etc
     """
     user = models.ForeignKey(Person, on_delete=models.CASCADE)
-    github = models.URLField(default='', null=True)
-    kaggle = models.URLField(default='', null=True)
-    instagram = models.URLField(default='', null=True)
-    facebook = models.URLField(default='', null=True)
-    linkedin = models.URLField(default='', null=True)
+    github = models.URLField(default='', null=True, blank=True)
+    kaggle = models.URLField(default='', null=True, blank=True)
+    instagram = models.URLField(default='', null=True, blank=True)
+    facebook = models.URLField(default='', null=True, blank=True)
+    linkedin = models.URLField(default='', null=True, blank=True)
 
 
 class PersonTechnologyStack(models.Model):

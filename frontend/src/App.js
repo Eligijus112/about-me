@@ -1,15 +1,12 @@
+// Basic packages importing 
 import React, { Component } from 'react';
 import axios from 'axios';
 import queryString from 'query-string'
 import './App.css';
 
-// Import social websites logos for the footer
-import instagram_logo from './instagram-icon.png'
-import kaggle_logo from './kaggle-icon.png'
-import github_logo from './github-icon.png'
-import facebook_logo from './facebook-icon.png'
-import linkedin_logo from './linkedin-icon.png'
-
+// Importing functions for social media links
+// These are used in the footer
+import {render_social} from './social_functions' 
 
 // Extracting the GET parameters
 const query_parameter = queryString.parse(location.search);
@@ -64,7 +61,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.Links.instagram)
+    console.log(this.state.Links.linkedin)
     return (
       <div className="Person">
         
@@ -137,27 +134,12 @@ class App extends Component {
         </div>
 
         <div className='footer'>
-          <a href={this.state.Links.instagram} target='_blank'>
-            <img src={instagram_logo} alt="instagram logo" />;
-          </a>
-
-          <a href={this.state.Links.github} target='_blank'>
-            <img src={github_logo} alt="github logo" />;
-          </a>
-
-          <a href={this.state.Links.kaggle} target='_blank'>
-            <img src={kaggle_logo} alt="kaggle logo" />;
-          </a>
-
-          <a href={this.state.Links.facebook} target='_blank'>
-            <img src={facebook_logo} alt="facebook logo" />;
-          </a>
-
-          <a href={this.state.Links.linkedin} target='_blank'>
-            <img src={linkedin_logo} alt="linkedin logo" />;
-          </a>
+          {render_social(this.state.Links.instagram, 'instagram')}  
+          {render_social(this.state.Links.github, 'github')}
+          {render_social(this.state.Links.kaggle, 'kaggle')}
+          {render_social(this.state.Links.facebook, 'facebook')}
+          {render_social(this.state.Links.linkedin, 'linkedin')}  
         </div>
-          
       </div>
     );
   }
