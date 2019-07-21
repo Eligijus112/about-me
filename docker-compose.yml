@@ -30,7 +30,8 @@ services:
     depends_on:
       - backend  
     volumes:
-      - ./frontend:/src/frontend    
+      - ./frontend:/src/frontend   
+      - /src/frontend/node_modules 
 
   db_aboutme:
     image: postgres:10
