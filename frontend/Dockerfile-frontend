@@ -5,13 +5,12 @@ FROM node:11
 RUN mkdir -p /src/frontend
 WORKDIR /src/frontend
 
-# Copying all the files from the local front end directory to the 
-# container 
-COPY . /src/frontend
-
 # Copying the package lists
-COPY package.json /src/frontend
-COPY package-lock.json /src/frontend
+COPY package*.json /src/frontend/
 
 # Installing all the frontend dependencies
 RUN npm install
+
+# Copying all the files from the local front end directory to the 
+# container 
+ADD . /src/frontend/

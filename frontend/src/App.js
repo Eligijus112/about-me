@@ -11,7 +11,7 @@ import { render_social } from './social_functions';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 // Extracting the GET parameters
-const query_parameter = queryString.parse(location.search);
+const query_parameter = queryString.parse(window.location.search);
 const user_id = query_parameter.user_id;
 
 class App extends Component {
