@@ -49,6 +49,7 @@ class Base(Configuration):
     CORS_ORIGIN_WHITELIST = [
         'localhost:3000',
         '127.0.0.1:3000',
+        'ec2-13-58-224-148.us-east-2.compute.amazonaws.com:3000'
     ]
 
     ROOT_URLCONF = 'master_settings.urls'
