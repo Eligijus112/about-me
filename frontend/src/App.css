@@ -1,7 +1,7 @@
 .Person-info img {
   border-radius: 75%;
   height: 16em;
-  width: 18.5em;
+  width: 16em;
   float: left;
   padding: 1em;
   margin: -4% 0%;
@@ -34,7 +34,7 @@
 
 .Person-info {
   text-align: right;
-  padding: 1em;
+  padding: 1%;
   font-weight: bold;
   animation: fadeIn 2s ease;
 }
@@ -101,15 +101,13 @@ ul.react-tabs__tab-list{
   cursor: pointer;
   padding: 0.25em;
   margin-left: 0;
-  opacity: 0.85;
+  opacity: 0.5;
 }
 
 .react-tabs__tab--selected{
   background: #003891;
   color: white;
   opacity: 1;
-  border-style: solid;
-  border-width: 2px;
 }
 
 .Books-list img {
