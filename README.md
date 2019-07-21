@@ -22,3 +22,9 @@ The backend is run in http://localhost:8000. The framework is django and django 
 # Usage 
 
 The basic usage is populating the database tables from the admin page and then seeing the results via http://locahost:3000 address. 
+
+# Cloud 
+
+Currently I am using a free tier AWS EC2 virtual machine. When the applications is up, you can view the frontend via: 
+
+http://ec2-13-58-224-148.us-east-2.compute.amazonaws.com:3000/.
