@@ -1,7 +1,42 @@
 import React from 'react';
 
-// Functions for the social media links 
-import { render_social } from './social_functions';
+// Importing logos
+import linkedin_logo from './media/linkedin-icon.png'
+import instagram_logo from './media/instagram-icon.png'
+import kaggle_logo from './media/kaggle-icon.png'
+import github_logo from './media/github-icon.png'
+import facebook_logo from './media/facebook-icon.png'
+
+export function render_social(href, logo){
+    if(href){
+
+        var logo_to_render = ''
+
+        if(logo==='linkedin'){
+            logo_to_render = linkedin_logo
+        }
+
+        if(logo==='instagram'){
+            logo_to_render = instagram_logo
+        }
+
+        if(logo==='kaggle'){
+            logo_to_render = kaggle_logo
+        }
+
+        if(logo==='github'){
+            logo_to_render = github_logo
+        }
+
+        if(logo==='facebook'){
+            logo_to_render = facebook_logo
+        }
+
+      return <a href={href} target='_blank'>
+              <img src={logo_to_render} alt={logo} />;
+              </a>
+    }
+  } 
 
 // Function for footer rendering
 export function render_footer(Links) {
@@ -13,79 +48,6 @@ export function render_footer(Links) {
                 {render_social(Links.kaggle, 'kaggle')}
                 {render_social(Links.facebook, 'facebook')}
                 {render_social(Links.linkedin, 'linkedin')}
-            </div>
-        )
-    }
-}
-
-// Function for short person description
-export function render_short_desc(Person) {
-    if (Person) {
-        return (
-            <div className='Person-short-desc'>
-                <div className="Person-header">
-                    <h2>{Person.name} {Person.surname} | {Person.caption}</h2>
-                </div>
-
-                <div className='Person-info'>
-                    <img src={Person.profile_image} alt='User'></img>
-                    <p>
-                        Email: {Person.email}
-                    </p>
-                    <p>
-                        Phone: {Person.phone}
-                    </p>
-                    <p>
-                        Country: {Person.country}
-                    </p>
-                    <p>
-                        City: {Person.city}
-                    </p>
-                    <p>
-                        Date of Birth: {Person.date_of_birth}
-                    </p>
-                    <p>
-                        Age: {Person.age}
-                    </p>
-                </div>
-
-                <div className="Person-desc">
-                    <h3> About me </h3>
-                    {Person.short_description}
-                </div>
-            </div>
-        )
-    }
-}
-
-// Function for listing experience
-export function render_experience(Experience) {
-    if (Experience) {
-        return (
-            <div className="Person-exp">
-                <h3> Professional experience </h3>
-                <ul>
-                    {Experience.map(x =>
-                        <li key={x.title + x.firm} className="Person-exp-entry">
-                            <p>
-                                <span id="exp">Title</span>: {x.title}
-                            </p>
-                            <p>
-                                <span id="exp">Workplace</span>: {x.firm}
-                            </p>
-                            <p>
-                                <span id="exp">Time frame</span>: {x.start_date} - {x.end_date}
-                            </p>
-                            <p>
-                                <span id="exp"> Months of experience </span>: {x.months_in_job}
-                            </p>
-                            <p>
-                                <span id="exp">Job description</span>:
-                  {x.description}
-                            </p>
-                        </li>
-                    )}
-                </ul>
             </div>
         )
     }
