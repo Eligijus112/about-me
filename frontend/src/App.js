@@ -5,7 +5,7 @@ import queryString from 'query-string'
 import './App.css';
 
 // Functions for the social media links 
-import { render_social } from './social_functions';
+import { render_footer } from './page_elements';
 
 // Functions for the tab navigation
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -160,14 +160,7 @@ class App extends Component {
                 )}
               </ul>
             </div>
-
-            <div className='footer'>
-              {render_social(this.state.Links.instagram, 'instagram')}
-              {render_social(this.state.Links.github, 'github')}
-              {render_social(this.state.Links.kaggle, 'kaggle')}
-              {render_social(this.state.Links.facebook, 'facebook')}
-              {render_social(this.state.Links.linkedin, 'linkedin')}
-            </div>
+            {render_footer(this.state.Links)}
           </div>
         </TabPanel>
 
@@ -202,14 +195,7 @@ class App extends Component {
                 )}
               </ul>
             </div>
-
-            <div className='footer'>
-              {render_social(this.state.Links.instagram, 'instagram')}
-              {render_social(this.state.Links.github, 'github')}
-              {render_social(this.state.Links.kaggle, 'kaggle')}
-              {render_social(this.state.Links.facebook, 'facebook')}
-              {render_social(this.state.Links.linkedin, 'linkedin')}
-            </div>
+            {render_footer(this.state.Links)}
           </div>
         </TabPanel>
       </Tabs>

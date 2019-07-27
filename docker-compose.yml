@@ -1,4 +1,6 @@
 version: "3"
+volumes: 
+  data:
 services:
 
   backend:
@@ -40,6 +42,6 @@ services:
         POSTGRES_USER: aboutme
         POSTGRES_PASSWORD: aboutme
     volumes:
-        - ./postregesql:/var/lib/postgresql
+           - data:/var/lib/postgresql/data
     ports:
         - 5432:5432   
