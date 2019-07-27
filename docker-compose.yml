@@ -36,13 +36,9 @@ services:
 
   db_aboutme:
     image: postgres:10
-    env_file:
-     - ./backend/.env
     container_name: "db_aboutme"
     environment:
-        POSTGRES_USER: ${DBUSER}
-        POSTGRES_PASSWORD: ${DBPASSWORD}
+        POSTGRES_USER: aboutme
+        POSTGRES_PASSWORD: aboutme
     volumes:
            - data:/var/lib/postgresql/data
-    ports:
-        - 5432:5432   
