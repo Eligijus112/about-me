@@ -4,8 +4,14 @@ import axios from 'axios';
 import queryString from 'query-string'
 import './App.css';
 
-// Functions for the social media links 
-import { render_footer } from './page_elements';
+// Rendering functions for page elements
+import { render_footer } from './page_elements.js'
+
+// Rendering functions for the 'about me' page 
+import { render_short_desc, render_experience } from './tabs/about-me';
+
+// Rendering functions for the books tab
+import { render_book_list } from './tabs/books';
 
 // Functions for the tab navigation
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -89,114 +95,18 @@ class App extends Component {
         </TabList>
 
         <TabPanel>
-          
           <div className="Person">
-
-            <div className="Person-header">
-              <h2>{this.state.Person.name} {this.state.Person.surname} | {this.state.Person.caption}</h2>
-            </div>
-
-            <div className='Person-info'>
-              <img src={this.state.Person.profile_image} alt='User'></img>
-
-              <p>
-                Email: {this.state.Person.email}
-              </p>
-
-              <p>
-                Phone: {this.state.Person.phone}
-              </p>
-
-              <p>
-                Country: {this.state.Person.country}
-              </p>
-
-              <p>
-                City: {this.state.Person.city}
-              </p>
-
-              <p>
-                Date of Birth: {this.state.Person.date_of_birth}
-              </p>
-
-              <p>
-                Age: {this.state.Person.age}
-              </p>
-            </div>
-
-            <div className="Person-desc">
-              <h3> About me </h3>
-              {this.state.Person.short_description}
-            </div>
-
-            <div className="Person-exp">
-              <h3> Professional experience </h3>
-              <ul>
-                {this.state.Experience.map(x =>
-
-                  <li key={x.title + x.firm} className="Person-exp-entry">
-                    <p>
-                      <span id="exp">Title</span>: {x.title}
-                    </p>
-
-                    <p>
-                      <span id="exp">Workplace</span>: {x.firm}
-                    </p>
-
-                    <p>
-                      <span id="exp">Time frame</span>: {x.start_date} - {x.end_date}
-                    </p>
-
-                    <p>
-                      <span id="exp"> Months of experience </span>: {x.months_in_job}
-                    </p>
-
-                    <p>
-                      <span id="exp">Job description</span>:
-
-                  {x.description}
-                    </p>
-                  </li>
-                )}
-              </ul>
-            </div>
-            {render_footer(this.state.Links)}
+            {render_short_desc(this.state.Person)}
+            {render_experience(this.state.Experience)}
           </div>
+          {render_footer(this.state.Links)}
         </TabPanel>
 
         <TabPanel>
           <div className="Books">
-
-            <div className="Books-list">
-              <h3> Books read by {this.state.Person.name} {this.state.Person.surname} </h3>
-              <ul>
-                {this.state.Books.map(x =>
-
-                  <li key={x.title + x.firm} className="Book-entry">
-                    <div className='bookCover'>
-                      <img src={x.book_cover} alt='Book_cover'></img>
-                    </div>
-                    <p>
-                      <span id="exp">Title</span>: {x.title}
-                    </p>
-
-                    <p>
-                      <span id="exp">Author</span>: {x.author}
-                    </p>
-
-                    <p>
-                      <span id="exp"> {this.state.Person.name} rating </span>: {x.user_rating} / 10
-                    </p>
-
-                    <p>
-                      <span id="exp"> {this.state.Person.name} description</span>: {x.user_description}
-                    </p>
-                  </li>
-                )}
-              </ul>
-            </div>
+            {render_book_list(this.state.Books, this.state.Person)}
+          </div>  
             {render_footer(this.state.Links)}
-          </div>
         </TabPanel>
       </Tabs>
     );
