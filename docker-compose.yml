@@ -20,7 +20,6 @@ services:
     volumes:
       - ./backend:/src/backend  
 
-
   frontend:
     build:
       context: ./frontend
@@ -37,10 +36,12 @@ services:
 
   db_aboutme:
     image: postgres:10
+    env_file:
+     - ./backend/.env
     container_name: "db_aboutme"
     environment:
-        POSTGRES_USER: aboutme
-        POSTGRES_PASSWORD: aboutme
+        POSTGRES_USER: ${DBUSER}
+        POSTGRES_PASSWORD: ${DBPASSWORD}
     volumes:
            - data:/var/lib/postgresql/data
     ports:
