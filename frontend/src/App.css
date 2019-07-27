@@ -122,3 +122,7 @@ ul.react-tabs__tab-list{
   padding: 1%;
   border-top:2px solid #043a91;
 }
+
+div {
+  white-space: pre-wrap;
+} 

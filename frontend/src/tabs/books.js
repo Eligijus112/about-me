@@ -5,7 +5,6 @@ export function render_book_list(Books, Person) {
     if (Books && Person) {
         return (
             <div className="Books-list">
-                <h3> Books read by {Person.name} {Person.surname} </h3>
                 <ul>
                     {Books.map(x =>
                         <li key={x.title + x.firm} className="Book-entry">
