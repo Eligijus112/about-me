@@ -27,6 +27,7 @@ class Base(Configuration):
 
         # Custom applications
         'about_me',
+        'master_settings',
 
         # 3rd party 
         'rest_framework',
