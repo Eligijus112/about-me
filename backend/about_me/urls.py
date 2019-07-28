@@ -11,3 +11,4 @@ urlpatterns = [
     path('links/', UserLinks.as_view()),
     path('books/', UserBooks.as_view())
 ]
+
