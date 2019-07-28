@@ -1,26 +1,13 @@
+/*
+About me tab
+*/
+
 .Person-info img {
-  border-radius: 75%;
-  height: 16em;
-  width: 16em;
+  border-radius: 80%;
+  height: 14em;
+  width: 14em;
   float: left;
-  padding: 1em;
-  margin: -4% 0%;
   animation: fadeIn 1s ease;
-}
-
-.footer img {
-  height: 3.1em;
-  width: 3.1em;
-  padding: 2px;
-}
-
-@keyframes fadeIn{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
 }
 
 .Person-header {
@@ -37,6 +24,7 @@
   padding: 1%;
   font-weight: bold;
   animation: fadeIn 2s ease;
+  overflow: auto;
 }
 
 .Person-desc {
@@ -47,6 +35,43 @@
   border-top:3px solid #043a91;
   border-bottom:3px solid #043a91;
   animation: fadeIn 1s ease;
+}
+
+.Person-exp{
+  padding: 1em;
+  font-family: arial;
+  font-size:1em;
+  animation: fadeIn 1s ease;
+}
+
+.Person-exp-entry{
+  font-size: 0.85em;
+  padding: 0.15em;
+  border-top:2px solid #043a91;
+  border-bottom:2px solid #043a91;
+}
+
+/* Books tab */
+
+.Books-list img {
+  height: 9em;
+  width: 11em;
+  animation: fadeIn 1s ease;
+  float:left;
+  padding: 1%
+}
+
+.Book-entry{
+  padding: 1%;
+  border-top:2px solid #043a91;
+}
+
+/* Page elements */
+
+.footer img {
+  height: 3.1em;
+  width: 3.1em;
+  padding: 2px;
 }
 
 h3 {
@@ -68,22 +93,15 @@ ul{
   list-style-type: none;
 }
 
-.Person-exp{
-  padding: 1em;
-  font-family: arial;
-  font-size:1.2em;
-  animation: fadeIn 1s ease;
-}
-
-.Person-exp-entry{
-  padding: 0.15em;
-  border-top:2px solid #043a91;
-  border-bottom:2px solid #043a91;
-}
-
 #exp{
   font-weight: bold;
 }
+
+div {
+  white-space: pre-wrap;
+} 
+
+/* Tabs */
 
 ul.react-tabs__tab-list{
   background-color: #003891;
@@ -110,19 +128,13 @@ ul.react-tabs__tab-list{
   opacity: 1;
 }
 
-.Books-list img {
-  height: 9em;
-  width: 11em;
-  animation: fadeIn 1s ease;
-  float:left;
-  padding: 1%
-}
+/* Animation */
 
-.Book-entry{
-  padding: 1%;
-  border-top:2px solid #043a91;
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
-
-div {
-  white-space: pre-wrap;
-} 
