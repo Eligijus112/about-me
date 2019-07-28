@@ -10,7 +10,7 @@ class Base(Configuration):
 
     SECRET_KEY = os.getenv('SECRET_KEY')
 
-    DEBUG = True
+    DEBUG = False
 
     ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 
     'ec2-13-58-224-148.us-east-2.compute.amazonaws.com']
@@ -115,11 +115,10 @@ class Base(Configuration):
         os.path.join(BASE_DIR, "static")
     ]
 
-    DEBUG = True
-
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
     MEDIA_URL = '/media/'
 
 
-class Prod(Base):
-    DEBUG = False    
+class Dev(Base):
+
+    DEBUG = True
