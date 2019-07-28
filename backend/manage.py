@@ -5,11 +5,11 @@ import dotenv
 
 if __name__ == "__main__":
     dotenv.read_dotenv()
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "about_me.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "master_settings.settings")
 
     try:
         from configurations.management import execute_from_command_line
-        from about_me import settings
+        from master_settings import settings
 
     except ImportError:
         try:

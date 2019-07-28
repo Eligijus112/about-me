@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path 
-from about_me.settings import MEDIA_URL, MEDIA_ROOT
+from master_settings.settings import MEDIA_URL, MEDIA_ROOT
 from django.conf.urls.static import static 
 
 urlpatterns = [

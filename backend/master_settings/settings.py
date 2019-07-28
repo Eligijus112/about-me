@@ -1,5 +1,5 @@
 """
-Django settings for about_me project.
+Master settings for the whole of backend
 """
 
 import os
@@ -15,7 +15,7 @@ class Base(Configuration):
     ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 
     'ec2-13-58-224-148.us-east-2.compute.amazonaws.com']
 
-    # Definng installed applications
+    # Defining installed applications
 
     INSTALLED_APPS = [
         'django.contrib.admin',
@@ -70,7 +70,7 @@ class Base(Configuration):
         },
     ]
 
-    WSGI_APPLICATION = 'about_me.wsgi.application'
+    WSGI_APPLICATION = 'master_settings.wsgi.application'
 
     DATABASES = {
         'default': {
@@ -118,3 +118,7 @@ class Base(Configuration):
 
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
     MEDIA_URL = '/media/'
+
+
+class Prod(Base):
+    DEBUG = False    
