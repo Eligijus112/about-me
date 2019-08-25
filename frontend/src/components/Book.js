@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 class Book extends Component {
 
@@ -31,21 +32,27 @@ class Book extends Component {
             <li key={this.state.title} className="Book-entry">
                 <Card>
                     <Typography>
-                        <div className='bookCover'>
-                            <img src={this.state.book_cover} alt='Book_cover'></img>
-                        </div>
-                        <p>
-                            <span id="exp">Title</span>: {this.state.title}
-                        </p>
-                        <p>
-                            <span id="exp">Author</span>: {this.state.author}
-                        </p>
-                        <p>
-                            <span id="exp"> {this.state.name} rating </span>: {this.state.user_rating} / 10
-                                </p>
-                        <p>
-                            <span id="exp"> {this.state.name} description</span>: {this.state.user_description}
-                        </p>
+                        <Grid container justify='center' spacing={2}>
+                        <Grid item>
+                            <div className='bookCover'>
+                                <img src={this.state.book_cover} alt='Book_cover'></img>
+                            </div>
+                        </Grid> 
+                        <Grid item>
+                            <p>
+                                <span id="exp">Title</span>: {this.state.title}
+                            </p>
+                            <p>
+                                <span id="exp">Author</span>: {this.state.author}
+                            </p>
+                            <p>
+                                <span id="exp"> {this.state.name} rating </span>: {this.state.user_rating} / 10
+                                    </p>
+                            <p>
+                                <span id="exp"> {this.state.name} description</span>: {this.state.user_description}
+                            </p>
+                            </Grid>   
+                        </Grid>
                     </Typography>
                 </Card>
             </li>

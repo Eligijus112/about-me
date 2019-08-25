@@ -54,13 +54,11 @@ About me tab
   height: 9em;
   width: 11em;
   animation: fadeIn 1s ease;
-  float:left;
   padding: 1%
 }
 
 .Book-entry{
   padding: 1%;
-  border-top:2px solid #043a91;
 }
 
 /* Page elements */
