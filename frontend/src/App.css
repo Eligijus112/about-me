@@ -4,9 +4,8 @@ About me tab
 
 .Person-info img {
   border-radius: 80%;
-  height: 14em;
-  width: 14em;
-  float: left;
+  height: 15em;
+  width: auto;
   animation: fadeIn 1s ease;
 }
 
@@ -20,7 +19,7 @@ About me tab
 }
 
 .Person-info {
-  text-align: right;
+  text-align: center;
   padding: 1%;
   font-weight: bold;
   animation: fadeIn 2s ease;
@@ -30,10 +29,7 @@ About me tab
 .Person-desc {
   padding: 1em;
   font-family: arial;
-  font-size:1.2em;
   display:block;
-  border-top:3px solid #043a91;
-  border-bottom:3px solid #043a91;
   animation: fadeIn 1s ease;
 }
 
@@ -45,10 +41,11 @@ About me tab
 }
 
 .Person-exp-entry{
-  font-size: 0.85em;
   padding: 0.15em;
-  border-top:2px solid #043a91;
-  border-bottom:2px solid #043a91;
+} 
+
+.MuiCard-root {
+  padding: 1rem;
 }
 
 /* Books tab */
@@ -76,6 +73,7 @@ About me tab
 
 h3 {
   margin: 0% 0% 1.5%;
+  text-align: center;
 }
 
 .footer {

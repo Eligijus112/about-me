@@ -7,14 +7,15 @@ import './App.css';
 // Rendering functions for page elements
 import { render_footer } from './page_elements.js'
 
-// Rendering functions for the 'about me' page 
-import { render_short_desc, render_experience } from './tabs/about-me';
-
 // Rendering functions for the books tab
 import { render_book_list } from './tabs/books';
 
 // Functions for the tab navigation
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
+// Importing components
+import ShortDescription from './components/ShortDescription'
+import Experiences from './components/Experiences'
 
 // Extracting the GET parameters
 const query_parameter = queryString.parse(window.location.search);
@@ -22,7 +23,6 @@ const user_id = query_parameter.user_id;
 
 // Loading .env parameters
 const host_site = process.env.REACT_APP_HOST_SITE
-
 
 class App extends Component {
 
@@ -85,7 +85,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(process.env.REACT_APP_HOST_SITE)
+    console.log(this.state.Person)
     return (
 
       <Tabs>
@@ -96,8 +96,10 @@ class App extends Component {
 
         <TabPanel>
           <div className="Person">
-            {render_short_desc(this.state.Person)}
-            {render_experience(this.state.Experience)}
+            
+            <ShortDescription Person = {this.state.Person} />
+            <Experiences Experience = {this.state.Experience} />
+
           </div>
           {render_footer(this.state.Links)}
         </TabPanel>
