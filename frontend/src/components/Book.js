@@ -46,10 +46,10 @@ class Book extends Component {
                                     <span id="exp">Author</span>: {this.state.author}
                                 </p>
                                 <p>
-                                    <span id="exp"> {this.state.name} rating </span>: {this.state.user_rating} / 10
+                                    <span id="exp">{this.state.name} rating </span>: {this.state.user_rating} / 10
                                         </p>
                                 <p>
-                                    <span id="exp"> {this.state.name} description</span>: {this.state.user_description}
+                                    <span id="exp">{this.state.name} description</span>: {this.state.user_description}
                                 </p>
                             </Grid>   
                         </Grid>

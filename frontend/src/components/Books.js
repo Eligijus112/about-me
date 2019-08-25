@@ -10,6 +10,7 @@ class Books extends Component {
     }
 
     static getDerivedStateFromProps(props, state) {
+        document.title = props.Person.name + " " + props.Person.surname + " Book list";
         return {
             ...state,
             books: props.Books,

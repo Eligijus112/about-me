@@ -19,7 +19,7 @@ class ShortDescription extends Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-
+        document.title = props.Person.name + " " + props.Person.surname + " | " + props.Person.caption;
         return {
             ...state,
             caption: props.Person.caption,
@@ -41,7 +41,9 @@ class ShortDescription extends Component {
             <div className='Person-short-desc'>
 
                 <div className="Person-header">
-                    <h2>{this.state.name} {this.state.surname} | {this.state.caption}</h2>
+                    <Typography>
+                        <h2>{this.state.name} {this.state.surname} | {this.state.caption}</h2>
+                    </Typography>
                 </div>
                 <div className='Person-info'>
                     <Card>

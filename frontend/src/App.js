@@ -44,6 +44,7 @@ class App extends Component {
     this.getExperience()
     this.getLinks()
     this.getBooks()
+
   }
 
   // Downloading a specific user data 
@@ -83,7 +84,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.Person)
     return (
 
       <Tabs>
