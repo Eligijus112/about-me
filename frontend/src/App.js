@@ -7,15 +7,13 @@ import './App.css';
 // Rendering functions for page elements
 import { render_footer } from './page_elements.js'
 
-// Rendering functions for the books tab
-import { render_book_list } from './tabs/books';
-
 // Functions for the tab navigation
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 // Importing components
 import ShortDescription from './components/ShortDescription'
 import Experiences from './components/Experiences'
+import Books from './components/Books'
 
 // Extracting the GET parameters
 const query_parameter = queryString.parse(window.location.search);
@@ -106,7 +104,7 @@ class App extends Component {
 
         <TabPanel>
           <div className="Books">
-            {render_book_list(this.state.Books, this.state.Person)}
+            <Books Books={this.state.Books} Person={this.state.Person} />
           </div>  
             {render_footer(this.state.Links)}
         </TabPanel>
