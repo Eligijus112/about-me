@@ -20,11 +20,9 @@ class Books extends Component {
     render(){
         return(
             <div className="Books-list">
-                <ul>
                     {this.state.books.map(x =>
                         <Book book = {x} person = {this.state.person} />
                     )}
-                </ul>
             </div>
         ) 
     }

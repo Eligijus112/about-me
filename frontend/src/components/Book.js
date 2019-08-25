@@ -29,33 +29,33 @@ class Book extends Component {
 
     render() {
         return (
-            <li key={this.state.title} className="Book-entry">
+            <div className='Book-entry'>
                 <Card>
                     <Typography>
-                        <Grid container justify='center' spacing={2}>
-                        <Grid item>
-                            <div className='bookCover'>
-                                <img src={this.state.book_cover} alt='Book_cover'></img>
-                            </div>
-                        </Grid> 
-                        <Grid item>
-                            <p>
-                                <span id="exp">Title</span>: {this.state.title}
-                            </p>
-                            <p>
-                                <span id="exp">Author</span>: {this.state.author}
-                            </p>
-                            <p>
-                                <span id="exp"> {this.state.name} rating </span>: {this.state.user_rating} / 10
-                                    </p>
-                            <p>
-                                <span id="exp"> {this.state.name} description</span>: {this.state.user_description}
-                            </p>
+                        <Grid container={true} justify='center' spacing={2}>
+                            <Grid item>
+                                <div className='bookCover'>
+                                    <img src={this.state.book_cover} alt='Book_cover'></img>
+                                </div>
+                            </Grid> 
+                            <Grid item>
+                                <p>
+                                    <span id="exp">Title</span>: {this.state.title}
+                                </p>
+                                <p>
+                                    <span id="exp">Author</span>: {this.state.author}
+                                </p>
+                                <p>
+                                    <span id="exp"> {this.state.name} rating </span>: {this.state.user_rating} / 10
+                                        </p>
+                                <p>
+                                    <span id="exp"> {this.state.name} description</span>: {this.state.user_description}
+                                </p>
                             </Grid>   
                         </Grid>
                     </Typography>
                 </Card>
-            </li>
+                </div>
         )
     }
 }

@@ -51,14 +51,13 @@ About me tab
 /* Books tab */
 
 .Books-list img {
-  height: 9em;
-  width: 11em;
+  height: 12rem;
+  width: 12rem;
   animation: fadeIn 1s ease;
-  padding: 1%
 }
 
 .Book-entry{
-  padding: 1%;
+  padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
 /* Page elements */
