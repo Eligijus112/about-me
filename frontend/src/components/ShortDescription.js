@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
+import { CardHeader } from '@material-ui/core';
 
 class ShortDescription extends Component {
 
@@ -71,7 +72,7 @@ class ShortDescription extends Component {
                     </Card>
                 </div>
                 <div className="Person-desc">
-                    <h3> Short introduction </h3>
+                <CardHeader title = "Short description" />
                     <Card display="block" displayPrint="none">
                         <Typography>
                             {this.state.short_description}

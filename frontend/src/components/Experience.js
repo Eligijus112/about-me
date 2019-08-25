@@ -28,7 +28,7 @@ class Experience extends Component {
 
     render() {
         return (
-            <li key={this.state.title + this.state.firm} className="Person-exp-entry">
+            <div className='Person-exp-entry'>
                 <Card>
                     <Typography>
                     <p>
@@ -48,7 +48,7 @@ class Experience extends Component {
                     </p>
                     </Typography>
                 </Card>
-            </li>
+            </div>
         )
     }
 }

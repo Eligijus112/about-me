@@ -46,6 +46,7 @@ About me tab
 
 .MuiCard-root {
   padding: 1rem;
+  display: block;
 }
 
 /* Books tab */

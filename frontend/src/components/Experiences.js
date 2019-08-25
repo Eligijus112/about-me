@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Experience from './Experience';
+import { CardHeader } from '@material-ui/core';
 
 class Experiences extends Component {
 
@@ -20,12 +21,10 @@ class Experiences extends Component {
         return (
 
             <div className="Person-exp">
-                <h3> Professional experience </h3>
-                <ul>
+                <CardHeader title = "Proffesional Experiences" />
                     {this.state.all_exp.map(x =>
                         <Experience Experience={x} />
                     )}
-                </ul>
             </div>
 
         )
