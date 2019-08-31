@@ -18,14 +18,16 @@ class Books extends Component {
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="Books-list">
-                    {this.state.books.map(x =>
-                        <Book book = {x} person = {this.state.person} />
-                    )}
+                {this.state.books.map((x, i) =>
+                    <div className='Book-entry' key={i}>
+                        <Book book={x} person={this.state.person} />
+                    </div>
+                )}
             </div>
-        ) 
+        )
     }
 }
 

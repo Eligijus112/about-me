@@ -2,6 +2,12 @@
 About me tab
 */
 
+.Person { 
+	max-width: 960px; 
+	margin: 0 auto !important; 
+	float: none !important; 
+}
+
 .Person-info img {
   border-radius: 80%;
   height: 15em;
@@ -12,10 +18,8 @@ About me tab
 .Person-header {
   text-align: center;
   font-family: arial;
-  padding: 1em;
-  background-color: #003891;
-  color: white;
   animation: fadeIn 1s ease;
+  padding: 1%;
 }
 
 .Person-info {
@@ -50,6 +54,12 @@ About me tab
 }
 
 /* Books tab */
+
+.Books { 
+	max-width: 960px;
+	margin: 0 auto !important; 
+	float: none !important; 
+}
 
 .Books-list img {
   height: 12rem;

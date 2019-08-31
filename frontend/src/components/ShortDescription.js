@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
 import { CardHeader } from '@material-ui/core';
 
 class ShortDescription extends Component {
@@ -40,43 +39,38 @@ class ShortDescription extends Component {
     render() {
         return (
             <div className='Person-short-desc'>
-
                 <div className="Person-header">
-                    <Typography>
+                    <Card>
                         <h2>{this.state.name} {this.state.surname} | {this.state.caption}</h2>
-                    </Typography>
+                    </Card>
                 </div>
                 <div className='Person-info'>
                     <Card>
-                    <Typography>
                         <img src={this.state.profile_image} alt='User'></img>
                         <p>
-                        <span id="exp">Email:</span> {this.state.email}
+                            <span id="exp">Email:</span> {this.state.email}
                         </p>
                         <p>
-                        <span id="exp">Phone:</span> {this.state.phone}
+                            <span id="exp">Phone:</span> {this.state.phone}
                         </p>
                         <p>
-                        <span id="exp">Country:</span> {this.state.country}
+                            <span id="exp">Country:</span> {this.state.country}
                         </p>
                         <p>
-                        <span id="exp">City:</span> {this.state.city}
+                            <span id="exp">City:</span> {this.state.city}
                         </p>
                         <p>
-                        <span id="exp">Date of Birth:</span> {this.state.date_of_birth}
+                            <span id="exp">Date of Birth:</span> {this.state.date_of_birth}
                         </p>
                         <p>
-                        <span id="exp">Age:</span> {this.state.age}
+                            <span id="exp">Age:</span> {this.state.age}
                         </p>
-                        </Typography>
                     </Card>
                 </div>
                 <div className="Person-desc">
-                <CardHeader title = "Short description" />
-                    <Card display="block" displayPrint="none">
-                        <Typography>
-                            {this.state.short_description}
-                        </Typography>
+                    <CardHeader title="Short description" />
+                    <Card display="block">
+                        {this.state.short_description}
                     </Card>
                 </div>
             </div>

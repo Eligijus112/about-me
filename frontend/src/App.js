@@ -4,8 +4,6 @@ import axios from 'axios';
 import queryString from 'query-string'
 import './App.css';
 
-// Rendering functions for page elements
-import { render_footer } from './page_elements.js'
 
 // Functions for the tab navigation
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -14,6 +12,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ShortDescription from './components/ShortDescription'
 import Experiences from './components/Experiences'
 import Books from './components/Books'
+import Footer from './components/Footer'
 
 // Extracting the GET parameters
 const query_parameter = queryString.parse(window.location.search);
@@ -70,7 +69,7 @@ class App extends Component {
     axios
       .get("http://" + host_site + ":8000/api/links/?user_id=" + this.id)
       .then(res => {
-        this.setState({ Links: res.data[0] })
+        this.setState({ Links: res.data })
       })
   }
 
@@ -94,23 +93,21 @@ class App extends Component {
 
         <TabPanel>
           <div className="Person">
-            
             <ShortDescription Person = {this.state.Person} />
             <Experiences Experience = {this.state.Experience} />
-
           </div>
-          {render_footer(this.state.Links)}
+          <Footer Links={this.state.Links}/>
         </TabPanel>
 
         <TabPanel>
           <div className="Books">
             <Books Books={this.state.Books} Person={this.state.Person} />
           </div>  
-            {render_footer(this.state.Links)}
+          <Footer Links={this.state.Links}/>
         </TabPanel>
       </Tabs>
     );
   }
-}
+} 
 
 export default App;

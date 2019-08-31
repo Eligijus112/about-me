@@ -19,11 +19,12 @@ class Experiences extends Component {
 
     render() {
         return (
-
             <div className="Person-exp">
                 <CardHeader title = "Proffesional Experiences" />
-                    {this.state.all_exp.map(x =>
+                    {this.state.all_exp.map((x, i) =>
+                    <div className='Person-exp-entry' key={i}>
                         <Experience Experience={x} />
+                    </div>    
                     )}
             </div>
 

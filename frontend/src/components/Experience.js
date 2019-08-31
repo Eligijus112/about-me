@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
 
 class Experience extends Component {
 
@@ -28,9 +27,7 @@ class Experience extends Component {
 
     render() {
         return (
-            <div className='Person-exp-entry'>
                 <Card>
-                    <Typography>
                     <p>
                         <span id="exp">Title</span>: {this.state.title}
                     </p>
@@ -46,9 +43,7 @@ class Experience extends Component {
                     <p>
                         <span id="exp">Job description</span>: {this.state.description}
                     </p>
-                    </Typography>
                 </Card>
-            </div>
         )
     }
 }
