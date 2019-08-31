@@ -13,6 +13,7 @@ import ShortDescription from './components/ShortDescription'
 import Experiences from './components/Experiences'
 import Books from './components/Books'
 import Links from './components/Links'
+import AboutWebsite from './components/AboutWebsite'
 
 // Extracting the GET parameters
 const query_parameter = queryString.parse(window.location.search);
@@ -94,6 +95,7 @@ class App extends Component {
         <TabPanel>
           <div className="Person">
             <ShortDescription Person = {this.state.Person} />
+            <AboutWebsite />
             <Experiences Experience = {this.state.Experience} />
             <Links Links={this.state.Links}/>
           </div>
