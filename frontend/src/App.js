@@ -12,7 +12,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ShortDescription from './components/ShortDescription'
 import Experiences from './components/Experiences'
 import Books from './components/Books'
-import Footer from './components/Footer'
+import Links from './components/Links'
 
 // Extracting the GET parameters
 const query_parameter = queryString.parse(window.location.search);
@@ -95,15 +95,14 @@ class App extends Component {
           <div className="Person">
             <ShortDescription Person = {this.state.Person} />
             <Experiences Experience = {this.state.Experience} />
+            <Links Links={this.state.Links}/>
           </div>
-          <Footer Links={this.state.Links}/>
         </TabPanel>
 
         <TabPanel>
           <div className="Books">
             <Books Books={this.state.Books} Person={this.state.Person} />
           </div>  
-          <Footer Links={this.state.Links}/>
         </TabPanel>
       </Tabs>
     );

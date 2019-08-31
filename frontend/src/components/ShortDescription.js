@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
-import { CardHeader } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+
 
 class ShortDescription extends Component {
 
@@ -15,7 +16,8 @@ class ShortDescription extends Component {
         city: this.props.Person.city,
         date_of_birth: this.props.Person.date_of_birth,
         age: this.props.Person.age,
-        short_description: this.props.Person.short_description
+        short_description: this.props.Person.short_description,
+        show_description: false
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -34,6 +36,10 @@ class ShortDescription extends Component {
             age: props.Person.age,
             short_description: props.Person.short_description
         }
+    }
+
+    show_description(){
+        this.setState({show_description: !this.state.show_description})
     }
 
     render() {
@@ -68,10 +74,16 @@ class ShortDescription extends Component {
                     </Card>
                 </div>
                 <div className="Person-desc">
-                    <CardHeader title="Short description" />
-                    <Card display="block">
-                        {this.state.short_description}
-                    </Card>
+                    <div className="ButtonHeader">
+                        <Button color='primary' onClick={x => this.show_description()}>
+                            About me
+                        </Button>
+                    </div>
+                    {this.state.show_description && 
+                        <Card display="block">
+                            {this.state.short_description}
+                        </Card>
+                    }
                 </div>
             </div>
         )
