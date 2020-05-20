@@ -10,10 +10,15 @@ class Base(Configuration):
 
     SECRET_KEY = os.getenv('SECRET_KEY')
 
-    DEBUG = True
-
-    ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 
-    'ec2-13-58-224-148.us-east-2.compute.amazonaws.com']
+    DEBUG = True 
+    
+    ALLOWED_HOSTS = [
+        '0.0.0.0', 
+        'localhost', 
+        '127.0.0.1',
+        '192.168.99.100', 
+        'ec2-13-58-224-148.us-east-2.compute.amazonaws.com'
+        ]
 
     # Defining installed applications
 

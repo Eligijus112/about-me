@@ -107,3 +107,6 @@ venv.bak/
 
 # Media 
 backend/media/
+
+# Vscode configurations
+.vscode
